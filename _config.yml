@@ -1,0 +1,16 @@
+# Site settings
+title: Portfolio
+email: nathan@nathanphillips.net
+description: > # this means to ignore newlines until "baseurl:"
+  The web design and development portfolio of Nathan Phillips.
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://nathanphillips.net" # the base hostname & protocol for your site
+twitter_username: createnate
+github_username:  createnate
+
+# Build settings
+destination: _build
+ignore: ['node_modules', bower.json, gulpfile.js, package.json]
+markdown: kramdown
+kramdown:
+  input: GFM
