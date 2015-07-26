@@ -73,5 +73,5 @@ gulp.task('minifyCSS', function() {
 // Routines
 gulp.task('default', ['jekyll-build', 'sass', 'serve']);
 gulp.task('production', function() {
-    run('jekyll-build', 'sass', 'uncss', 'minifyCSS');
+    run('sass', 'uncss', 'minifyCSS');
 });
