@@ -48,6 +48,7 @@ gulp.task('uncss', function() {
         .pipe(uncss({
             html: ['./_build/index.html']
         }))
+        .pipe(gulp.dest('./css'))
         .pipe(gulp.dest('./_build/css/'))
         .pipe(size({
             title: 'Unused CSS removed:',
@@ -61,6 +62,7 @@ gulp.task('minifyCSS', function() {
             compatibility: 'ie8',
             keepSpecialComments: 0
         }))
+        .pipe(gulp.dest('./css'))
         .pipe(gulp.dest('./_build/css'))
         .pipe(size({
             title: 'Minified CSS:',
@@ -71,5 +73,5 @@ gulp.task('minifyCSS', function() {
 // Routines
 gulp.task('default', ['jekyll-build', 'sass', 'serve']);
 gulp.task('production', function() {
-    run('sass', 'uncss', 'minifyCSS');
+    run('jekyll-build', 'sass', 'uncss', 'minifyCSS');
 });
