@@ -8,6 +8,7 @@ var uncss        = require('gulp-uncss');
 var size         = require('gulp-size');
 var minifyCss    = require('gulp-minify-css');
 var run          = require('run-sequence');
+var ghPages      = require('gulp-gh-pages');
 
 // Static Server + watching scss/html files
 gulp.task('serve', function() {
@@ -70,8 +71,16 @@ gulp.task('minifyCSS', function() {
         }));
 });
 
+gulp.task('publish', function() {
+  return gulp.src('./**/*')
+    .pipe(ghPages());
+});
+
 // Routines
 gulp.task('default', ['jekyll-build', 'sass', 'serve']);
 gulp.task('production', function() {
     run('sass', 'uncss', 'minifyCSS');
 });
+gulp.task('deploy', function() {
+    run('production', )
+})
