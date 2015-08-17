@@ -82,5 +82,5 @@ gulp.task('production', function() {
     run('sass', 'uncss', 'minifyCSS');
 });
 gulp.task('deploy', function() {
-    run('production', )
-})
+    run('jekyll-build', 'production');
+});
